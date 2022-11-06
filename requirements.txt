@@ -1,0 +1,14 @@
+asgiref
+certifi
+charset-normalizer
+Django
+django-ckeditor
+django-jet
+django-jet-reboot
+django-js-asset
+idna
+Pillow
+requests
+six
+sqlparse
+urllib3

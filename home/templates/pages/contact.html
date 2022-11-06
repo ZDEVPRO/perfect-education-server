@@ -1,0 +1,93 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block title %} Aloqa - PERFECT EDUCATION {% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <!--Contact Us Start-->
+    <section class="main-contact-page-in">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <div class="contact-detail-box">
+                        <h3 class="h3-title">Aloqa Malumotlari</h3>
+                        <p>Savolingiz bo'lsa yoki kursimizga yozilmoqchi bo'lsangiz, Ism Familiyangiz, telefon
+                            raqamingiz, va xabar ichiga qaysi kurs sizni qiziqtirganini yozib qoldiring. Raxmat!</p>
+                        <ul>
+                            <li>
+                                <div class="contact-detail-icon">
+                                    <img src="{% static 'assets/images/contact-location.png' %}" alt="location">
+                                </div>
+                                <div class="contact-detail-content">
+                                    <p>Bizning Manzil:</p>
+                                    <h3 class="contact-text">{{ contact_data.address }}</h3>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-detail-icon">
+                                    <img src="{% static 'assets/images/contact-mail.png' %}" alt="location">
+                                </div>
+                                <div class="contact-detail-content">
+                                    <p>Elektron pochta:</p>
+                                    <h3 class="contact-text">{{ contact_data.email }}</h3>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-detail-icon">
+                                    <img src="{% static 'assets/images/contact-call.png' %}" alt="location">
+                                </div>
+                                <div class="contact-detail-content">
+                                    <p>Telefon raqam:</p>
+                                    <h3 class="contact-text">{{ contact_data.phone }}</h3>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    {% block success_message %}{% include 'components/success_message.html' %}{% endblock %}
+                    <div class="get-touch-box">
+                        <div class="get-touch-title">
+                            <h2 class="h2-subtitle">Biz bilan aloqa</h2>
+                            <h2 class="h2-title">Savolingiz bormi?</h2>
+                        </div>
+                        <div class="get-touch-form">
+                            <form method="post" action="{% url 'contact' %}">{% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-box">
+                                            <input type="text" name="fullname" class="form-input"
+                                                   placeholder="Ism Familiya" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-box">
+                                            <input type="number" name="phone" class="form-input"
+                                                   placeholder="Telefon raqam" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-box">
+                                            <textarea name="message" class="form-input"
+                                                      placeholder="Sizning xabaringiz"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-box mb-0">
+                                            <button type="submit" class="sec-btn"><span>Xabarni jo'natish</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Contact Us End-->
+{% endblock %}

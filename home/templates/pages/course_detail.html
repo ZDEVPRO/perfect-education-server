@@ -1,0 +1,56 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block title %} Kurslar - PERFECT EDUCATION {% endblock %}
+
+{% block content %}
+    <!--Course Detail Start-->
+    <section style="margin-top: 100px;" class="main-course-detail-in">
+        <div class="container">
+            <div class="row">
+                <!--Course Detail Info Start-->
+                <div class="col-xl-8 col-lg-7">
+                    <div class="course-detail-box">
+                        <h2 style="margin-bottom: -50px;" class="h2-title">{{ course.title }}</h2>
+                        <div class="course-detail-img wow fadeInUp animated" data-wow-delay=".4s">
+                            <img src="{{ course.image.url }}" alt="course">
+                        </div>
+                        <h3 class="h3-title">Kurs haqida</h3>
+                        {{ course.about|safe }}
+                        <div class="course-detail-share">
+                            <h3 class="h3-title">Aloqa uchun:</h3>
+                            <h4>{{ contact_data.phone }}</h4>
+                        </div>
+                    </div>
+                </div>
+                <!--Course Detail Info End-->
+                <!--Sidebar Start-->
+                <div class="col-xl-4 col-lg-5">
+                    <div class="course-detail-sidebar">
+                        <div class="recent-course-box">
+                            <div class="courses-sidebar-title">
+                                <div class="sidebar-title-line"></div>
+                                <h3 class="h3-title">Boshqa kurslar</h3>
+                            </div>
+                            <ul>
+                                {% for rs in other %}
+                                    <li>
+                                        <div class="recent-course-img">
+                                            <a href="{% url 'course-detail' rs.courses.id %}"><img style="width: 200px;" src="{{ rs.courses.image.url }}" alt="{{ rs.courses.title }}"></a>
+                                        </div>
+                                        <div class="recent-course-text">
+                                            <a href="{% url 'course-detail' rs.courses.id %}"><p>{{ rs.courses.title }}</p></a>
+                                            <span>{{ rs.courses.price_intcomma }} UZS</span>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--Sidebar End-->
+            </div>
+        </div>
+    </section>
+    <!--Course Detail End-->
+{% endblock %}

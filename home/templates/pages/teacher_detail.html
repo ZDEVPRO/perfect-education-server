@@ -1,0 +1,92 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block title %} {{ teacher.full_name }} - PERFECT EDUCATION {% endblock %}
+
+{% block content %}
+    <style>
+        .kurs-button {
+            color: white;
+            background-color: #e44917;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+    </style>
+
+    <!--Instructor Detail Start-->
+    <section style="margin-top: 150px;" class="main-instructor-detail-page-in">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="instructor-detail-info-img-box">
+                        <div class="instructor-detail-page-img wow fadeInUp animated" data-wow-delay=".4s">
+                            <img src="{{ teacher.image.url }}" alt="instructor">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="instructor-detail-info-box">
+                        <div class="instructor-detail-info-user-box">
+                            <div class="instructor-detail-info-name-rating">
+                                <div class="instructor-detail-info-name">
+                                    <h2 class="h2-title">{{ teacher.full_name }}</h2>
+                                    <span>{{ teacher.category }} O'qituvchisi</span>
+                                </div>
+                            </div>
+                            <div class="instructor-detail-info-follow">
+                                <a style="text-decoration: none; color: black;" href="tel://{{ teacher.phone }}">
+                                    <h5>{{ teacher.phone }}</h5></a>
+                                <span>Telefon raqam</span>
+                            </div>
+                        </div>
+                        <div class="instructor-detail-info-line"></div>
+                        <h3 class="h3-title">Men haqimda</h3>
+                        {{ teacher.about_me|safe }}
+                        <div class="instructor-detail-info-line"></div>
+                        {% if teacher_courses %}
+                            <div class="instructor-detail-info-courses">
+                                <h2 class="h2-title">Mening kurslarim</h2>
+                                <div class="row">
+                                    {% for rs in teacher_courses %}
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="course-box">
+                                                <div class="course-img">
+                                                    <a href="{% url 'course-detail' rs.id %}"><img
+                                                            src="{{ rs.image.url }}"
+                                                            alt="course"></a>
+                                                </div>
+                                                <div class="course-content">
+                                                    <a href="{% url 'course-detail' rs.id %}">
+                                                        <h3 class="h3-title">{{ rs.title }}</h3>
+                                                    </a>
+                                                    <div class="course-instructor-review">
+                                                        <div class="course-instructor-box">
+                                                            <a>O'qituvchi: {{ rs.teacher.full_name }}</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="course-line"></div>
+                                                    <div class="course-price-student-box">
+                                                        <div class="course-price-box">
+                                                            <span>{{ rs.price_intcomma }} UZS</span>
+                                                        </div>
+                                                        <a href="{% url 'enroll-course' rs.id %}">
+                                                            <button class="kurs-button">Kursga yozilish</button>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% else %}
+                            <div style="margin-bottom: 200px;"></div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Instructor Detail End-->
+{% endblock %}

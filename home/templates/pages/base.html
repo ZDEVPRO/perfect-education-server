@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="keywords"
+          content="o'quv markaz, o'quv markazi, rishton, fergana, ingliz tili kursi, o'quv kursi kurslar"/>
+    <meta name="description"
+          content="O'quv Markazimiz o‘z faoliyatini yo‘lga qo‘ygan ondayoq oldiga ulkan maqsad qo‘ygan: Yuqori muvaffaqiyat cho‘qqilarini egallashni istagan yoshlar uchun eng zarur bilimlarni yuqori sifatda professional tarzda yetkazish."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <!-- FavIcon CSS -->
+    <link rel="icon" href="{{ logo_site.favicon.url }}" type="image/gif" sizes="16x16">
+
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.min.css' %}">
+
+    <!--Google Fonts CSS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+          rel="stylesheet">
+
+    <!--Font Awesome Icon CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome.min.css' %}">
+
+    <!-- Slick Slider CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/slick.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/slick-theme.css' %}">
+
+    <!-- Wow Animation CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/animate.min.css' %}">
+
+    <!--Magnific Popup CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/magnific-popup.min.css' %}">
+
+    <!-- Main Style CSS  -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+</head>
+<body>
+
+<!-- Loader Start -->
+<div class="loader-box">
+    <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">Loading...</p>
+    </div>
+</div>
+<!-- Loader End -->
+
+{% block header %}{% include 'components/header.html' %}{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}{% include 'components/footer.html' %}{% endblock %}
+
+<!-- Scroll To Top Start -->
+<a href="#main-banner" class="scroll-top" id="scroll-to-top">
+    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+</a>
+<!-- Scroll To Top End-->
+
+<!-- Bubbles Animation Start -->
+<div class="bubbles_wrap">
+    <div class="bubble x1"></div>
+    <div class="bubble x2"></div>
+    <div class="bubble x3"></div>
+    <div class="bubble x4"></div>
+    <div class="bubble x5"></div>
+    <div class="bubble x6"></div>
+    <div class="bubble x7"></div>
+    <div class="bubble x8"></div>
+    <div class="bubble x9"></div>
+    <div class="bubble x10"></div>
+</div>
+<!-- Bubbles Animation End-->
+
+<!-- Jquery JS Link -->
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Custom JS Link -->
+<script src="{% static 'assets/js/custom.js' %}"></script>
+
+<!-- Slick Slider JS Link -->
+<script src="{% static 'assets/js/slick.min.js' %}"></script>
+
+<!-- Wow Animation JS -->
+<script src="{% static 'assets/js/wow.min.js' %}"></script>
+
+<!--Banner Bg Animation JS-->
+<script src="{% static 'assets/js/bg-moving.js' %}"></script>
+
+<!--Magnific Popup JS-->
+<script src="{% static 'assets/js/magnific-popup.js' %}"></script>
+<script src="{% static 'assets/js/custom-magnific-popup.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block title %} Asosiy - PERFECT EDUCATION {% endblock %}
+
+{% block content %}
+    <style>
+        .kurs-button {
+            color: white;
+            background-color: #e44917;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+    </style>
+    <!--Banner Start-->
+    <section class="main-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="banner-content">
+                        <h2 class="h2-subtitle wow fadeInUp animated"
+                            data-wow-delay=".4s">{{ home_screen.subtitle }}</h2>
+                        <h1 class="h1-title wow fadeInUp animated" data-wow-delay=".5s">{{ home_screen.title }}</h1>
+                        <p class="wow fadeInUp animated" data-wow-delay=".6s">{{ home_screen.description }}</p>
+                        <div class="banner-btn wow fadeInUp animated" data-wow-delay=".7s">
+                            <a href="{{ home_screen.button1_link }}" class="sec-btn">{{ home_screen.button1_name }}</a>
+                            <a href="{{ home_screen.button2_link }}"
+                               class="sec-btn btn-2">{{ home_screen.button2_name }}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="banner-img-box wow fadeInRight animated" data-wow-delay=".4s">
+                        <div class="banner-img">
+                            <img src="{{ home_screen.image.url }}" alt="banner">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Banner End-->
+
+    <!--About Us Start-->
+    <section style="background-color: white;" class="main-about-us">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="about-img-box wow fadeInLeft animated" data-wow-delay=".4s">
+                        <div class="about-img">
+                            <img src="{{ about.image.url }}" alt="about us">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-us-content">
+                        <div class="about-us-title">
+                            <h2 class="h2-subtitle">{{ about.subtitle }}</h2>
+                            <h2 class="h2-title">{{ about.title }}</h2>
+                        </div>
+                        <p>{{ about.description }}</p>
+                        <a href="{{ about.button1_link }}" class="sec-btn">{{ about.button1_name }}</a>
+                        <a href="{{ about.button2_link }}" class="sec-btn btn-2">{{ about.button2_name }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--About Us End-->
+
+    <!--Event Start-->
+    <section class="main-event">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-lg-5">
+                    <div class="event-img-box wow fadeInLeft animated" data-wow-delay=".4s">
+                        <div class="event-img">
+                            <img src="{% static 'assets/images/event-img.jpg' %}" alt="event">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-7">
+                    <div class="event-content-box">
+                        <div class="event-title">
+                            <h2 class="h2-subtitle">Nega ko'pchilik o'quvchilar bizni tanlashadi?</h2>
+                            <h2 class="h2-title">Afzaliklarimiz</h2>
+                        </div>
+                        <div class="event-box">
+                            <div class="event-date-day">
+                                <div class="event-date">
+                                    <p>1</p>
+                                </div>
+                            </div>
+                            <div class="event-text-line"></div>
+                            <div class="event-content-text">
+                                <h3 class="h3-title">Professionallik</h3>
+                                <p>Barcha ustozlarimiz o‘z faninig ustalari hisoblanishadi</p>
+                            </div>
+                        </div>
+                        <div class="event-box">
+                            <div class="event-date-day">
+                                <div class="event-date">
+                                    <p>2</p>
+                                </div>
+                            </div>
+                            <div class="event-text-line"></div>
+                            <div class="event-content-text">
+                                <h3 class="h3-title">Qadriyatlar</h3>
+                                <p>Biz ta’lim berishning yuksak qadriyatlarini aks ettiramiz</p>
+                            </div>
+                        </div>
+                        <div class="event-box mb-0">
+                            <div class="event-date-day">
+                                <div class="event-date">
+                                    <p>3</p>
+                                </div>
+                            </div>
+                            <div class="event-text-line"></div>
+                            <div class="event-content-text">
+                                <h3 class="h3-title">Zamonaviylik</h3>
+                                <p>Biz ta’lim jarayonida eng so‘nggi metodlardan foydalanamiz</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Event End-->
+
+    <!--Online Courses Start-->
+    <section class="main-online-courses">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="online-courses-title">
+                        <h2 class="h2-subtitle">Kurslarimiz</h2>
+                        <h2 class="h2-title">Siz uchun top 3 kurslarimiz </h2>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="online-courses-title-btn">
+                        <a href="{% url 'courses' %}" class="sec-btn">Barcha Kurslar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for rs in coursess %}
+                    <div style="margin-bottom: 30px;" class="col-lg-4">
+                        <div class="course-box">
+                            <div class="course-img">
+                                <a href="{% url 'course-detail' rs.courses.id %}"><img src="{{ rs.courses.image.url }}"
+                                                                                       alt="course"></a>
+                            </div>
+                            <div class="course-content">
+                                <a href="{% url 'course-detail' rs.courses.id %}">
+                                    <h3 class="h3-title">{{ rs.courses.title }}</h3>
+                                </a>
+                                <div class="course-instructor-review">
+                                    <div class="course-instructor-box">
+                                        <a>O'qituvchi: {{ rs.courses.teacher.full_name }}</a>
+                                    </div>
+                                </div>
+                                <div class="course-line"></div>
+                                <div class="course-price-student-box">
+                                    <div class="course-price-box">
+                                        <span>{{ rs.courses.price_intcomma }} UZS</span>
+                                    </div>
+                                    <a href="{% url 'enroll-course' rs.courses.id %}">
+                                        <button class="kurs-button">Kursga yozilish</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!--Online Courses End-->
+{% endblock %}

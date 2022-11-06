@@ -1,0 +1,48 @@
+{% load static %}
+
+<style>
+    .dev-a {
+        color: #bb2d3b;
+    }
+
+    .dev-span {
+        color: #d1d8fe;
+        float: right;
+        margin-top: -25px;
+    }
+
+    .dev-span2 {
+        color: #d1d8fe;
+        float: left;
+    }
+
+    .dev-a:hover {
+        color: #0a58ca;
+        transition: 0.6s;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .dev-span {
+            float: none;
+        }
+
+        .dev-span2 {
+            float: none;
+        }
+    }
+
+</style>
+
+<!--Footer Start-->
+<div class="footer-copyright-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <span class="dev-span2">© {{ now_year }} PERFECT EDUCATION. Barcha huquqlar himoyalangan.</span><br>
+                <span class="dev-span">Developed by <a class="dev-a"
+                                                       href="https://www.origin-digital.uz/"> ORIGIN DIGITAL</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Footer End-->
